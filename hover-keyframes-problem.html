@@ -59,7 +59,8 @@
     const section = document.querySelector("section")
     const div = document.querySelector("div")
 
-    // behandel hover IN mit JavaScript
+    // alternative zu hover:
+    // behandel hover IN mit JavaScript => dann spielt animation bis zuende (auch wenn man wieder aus Element weg hovered!)
     section.onmouseenter = () => {
       div.classList.add("animate")
 
