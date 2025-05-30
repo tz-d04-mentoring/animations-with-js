@@ -6,7 +6,7 @@ Wenn wir ein Element bei Hover animaten und das Element beim Hovern MOVEN soll, 
 
 Um das zu beheben, können wir den Hover Effekt durch ein PARENT ELEMENT, dass NICHT MOVED, triggern.
 
-Demo siehe File: transition-hover-parent-problem.html
+Demo siehe File: [transition-hover-parent-problem.html](transition-hover-parent-problem.html)
 
 Allgemein: Hover sollten wir nur auf dem Element DIREKT anwenden, wenn es seine Position nicht moved. Z.B. für Change von Background-Color, Box-Shadow, etc.
 
@@ -22,7 +22,7 @@ Problem: Wenn die Klasse gesetzt ist, müssen wir sie nach der Animation wieder 
 
 Dafür können wir das Event "onanimationend" benutzen, und danach die Klasse wieder removen.
 
-Siehe Demo in File: animation-beim-click.html
+Siehe Demo in File: [animation-beim-click.html](animation-beim-click.html)
 
 
 ## Problem 3: Keyframe Animation bei Hover zuende abspielen (auch bei Hover Out) 
@@ -33,4 +33,4 @@ Sie wird dann hart zurückgesetzt, was nicht sehr schön ist.
 
 Wenn wir wollen, dass die Animation nur beim Hover IN getriggert wird und zuende spielt, auch wenn wir wieder raushovern, können wir das Event "onmouseenter" benutzen statt der Hover Klasse.
 
-Siehe Demo in File: hover-keyframes-problem.html
+Siehe Demo in File: [hover-keyframes-problem.html](hover-keyframes-problem.html)
