@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyframes Hover Probleme</title>
+  <style>
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    div {
+      width: 150px;
+      height: 150px;
+      background: pink;
+      /* transition hat keinen Einfluss auf keyframes animations */
+      /* setze animation am anfang auf paused */
+      /* setze mit JS die animation auf running */
+      transition: 1s;
+    }
+
+    /* wenn ein element diese KLASSE hat, wird animation abgespielt */
+    .animate {
+      animation: movotate 1s 2 alternate;
+    }
+
+    section {
+      border: 1px solid black;
+    }
+
+    @keyframes movotate {
+      to {
+        rotate: 45deg;
+        translate: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- parent bleibt FIX an position => moved nicht -->
+  <section>
+    <div></div>
+  </section>
+
+  <script>
+
+    // mache section KLICKBAR
+    const section = document.querySelector("section")
+    const div = document.querySelector("div")
+
+    // wenn wir bei click eine KEYFRAME ANimation playen wollen
+    // und beim nächsten klick NOCHMAL
+    // können wir eine CSS Klasse mit einer KeyFrame Animation nach click ADDEN.
+    // und wenn animation FERTIG ist, removen wir Klasse wieder 
+    section.onclick = () => {
+      // div ojekt hat ein Child Objekct style
+      // das style objekt hat alle CSS Styles, die man setzen kann
+      // bei change von style mit JavaScript wird auch CSS transition angewendet! sehr schön!
+      div.style.backgroundColor = "purple"
+
+      // wenn user klickt => füge Klasse dem div hinzu
+      div.classList.add("animate")
+
+      // wenn animation FERTIG ist => remove klasse wieder
+
+      // onanimationend function wird ausgeführt,
+      // wenn animation auf Element fertig ist
+      // trick: wenn fertig, removen wir die animation klasse
+      div.onanimationend = () => {
+        console.log("Animation hat fertig!")
+        div.classList.remove("animate")
+      }
+      // setTimeout führt etwas DELAYED aus
+      // setTimeout(() => {
+      // }, 3000)
+
+    }
+
+  </script>
+
+</body>
+
+</html>

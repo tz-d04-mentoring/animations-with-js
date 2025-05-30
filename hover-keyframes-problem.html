@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyframes Hover Probleme</title>
+  <style>
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      margin: 0;
+      overflow: hidden
+    }
+
+    div {
+      width: 150px;
+      height: 150px;
+      background: pink;
+      /* transition hat keinen Einfluss auf keyframes animations */
+      transition: 1s;
+    }
+
+    section {
+      border: 1px solid black;
+    }
+
+    .animate {
+      animation: movotate 1s 2 alternate;
+    }
+
+    /* PROBLEM bei Hover keyframes animation
+    wenn ich WEG hover, wird animation hart zurückgesetzt
+    */
+    /* section:hover div { */
+      /* playe keyframe animation ??? */
+      /* animation: movotate 1s 2 alternate; */
+    /* } */
+
+    @keyframes movotate {
+      to {
+        rotate: 45deg;
+        translate: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- parent bleibt FIX an position => moved nicht -->
+  <section>
+    <div></div>
+  </section>
+
+  <script>
+
+    const section = document.querySelector("section")
+    const div = document.querySelector("div")
+
+    // behandel hover IN mit JavaScript
+    section.onmouseenter = () => {
+      div.classList.add("animate")
+
+      // wenn animation endet => führe function aus
+      // und lösche klasse wieder
+      div.onanimationend = () => {
+        div.classList.remove("animate")
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

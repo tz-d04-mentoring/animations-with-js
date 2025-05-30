@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animations in Browser</title>
+  <style>
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      margin: 0;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      background: pink;
+      transition: 1s;
+    }
+
+    section {
+      border: 1px solid black;
+    }
+
+    section:hover div {
+      rotate: 45deg;
+      translate: 200px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- parent bleibt FIX an position => moved nicht -->
+  <section>
+    <div></div>
+
+  </section>
+
+
+</body>
+
+</html>
