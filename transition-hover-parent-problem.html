@@ -18,12 +18,27 @@
       height: 200px;
       background: pink;
       transition: 1s;
+
+      /* PROBLEM: wenn child element bei hover MOVED / position verändert
+        dann kann sich Element vom Hover Position wegbewegen. 
+        Die animation kann gestört werden / springen
+        Darum Grundregel: Lieber NIE ein Element bei hover DIREKT animieren, wenn es sich verschieben soll
+        Hover lieber für Dinge nehmen wie Background-color / Box-Shadow, etc, wo Position nicht geändert wird
+      */
+
+      /* &:hover {
+        rotate: 45deg;
+        translate: 200px;
+      } */
     }
 
     section {
       border: 1px solid black;
     }
 
+    /* trick: animate child element wenn PARENT gehovered wird
+    parent bleibt fix an position und hover wird durch move von child element nicht gestört
+    */
     section:hover div {
       rotate: 45deg;
       translate: 200px;
@@ -34,8 +49,12 @@
 <body>
 
 
-  <!-- parent bleibt FIX an position => moved nicht -->
+  <!-- 
+    trick: parent triggert das Hover! 
+    parent bleibt FIX an position => moved nicht 
+  -->
   <section>
+    <!-- child moved => wird animated durch hover auf PARENT element -->
     <div></div>
   </section>
 
