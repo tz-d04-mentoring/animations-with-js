@@ -66,6 +66,7 @@
 
       // wenn animation endet => führe function aus
       // und lösche klasse wieder
+      // dann können wir bei hover IN animation nochmal abspielen
       div.onanimationend = () => {
         div.classList.remove("animate")
       }
